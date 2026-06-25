@@ -24,11 +24,12 @@
     border-radius: 8px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 .closebutton {
     width: 16px;
     height: 16px;
+    margin-left: 8px;
     margin-right: 8px; 
     cursor: pointer; 
     background-color:#c33333; 

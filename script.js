@@ -87,11 +87,12 @@ function deselectIcon(element){
 
 handleIconTap(document.getElementById("desktopApp"));
 
-function handleIconTap(element) {
-  if (element.classList.contains("selected")){
-    deselectIcon(element)
-    openWindow(window)
-  } else{
-    selectIcon(element)
-  }  
+function handleIconTap(element, window) {
+  element.addEventListener("mouseover", () => {selectIcon(element);
+  });
+  element.addEventListener("mouseout", () => {deselectIcon(element);
+  });
+  
+  element.addEventListener("click", () => {openWindow(window);
+  })  
 }
