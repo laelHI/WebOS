@@ -60,10 +60,7 @@ function dragElement(element) {
     document.onmouseup = null;
     document.onmousemove = null;
   }
-}
-//
-var notesScreen = document.querySelector("#notesApp");
-var welcomeScreen = document.querySelector("#welcome");
+  }
 
 function closeWindow(element) {
   element.style.display = "none"
@@ -72,22 +69,17 @@ function openWindow(element) {
   element.style.display = "block"
 }
 
-var welcomeScreenClose = document.querySelector("#welcomeclose")
-welcomeScreenClose.addEventListener("click", function() {
-  closeWindow(welcomeScreen);
-});
-var welcomeScreenOpen = document.querySelector("#welcomeopen")
-welcomeScreenOpen.addEventListener("click", function() {
-  openWindow(welcomeScreen);
-});
-var notesScreenClose = document.querySelector("#notesclose")
-  notesScreenClose.addEventListener("click", function() {
-  closeWindow(notesScreen);
-});
-var notesScreenOpen = document.querySelector("#notesopen")
-  notesScreenOpen.addEventListener("click", function() {
-  openWindow(notesScreen);
-});
+function openAndCloseScreen(element, elementClose, elementOpen) {
+  elementClose.addEventListener("click", () =>
+    closeWindow(element));
+  elementOpen.addEventListener("click", () =>
+    openWindow(element));
+}
+
+openAndCloseScreen(
+  document.querySelector("#notesApp"),
+  document.querySelector("#notesclose"), 
+  document.querySelector("#desktopNotesApp"))
 
 var selectedIcon = undefined
 function selectIcon(element){
