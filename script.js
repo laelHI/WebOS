@@ -5,8 +5,11 @@ setInterval(
 
 // Make the DIV element draggable:
 dragElement(document.getElementById("welcome"));
+dragElement(document.getElementById("notesApp"));
+
 //dragElement(document.getElementById("time")); 
 
+//from tutorial
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
   // Step 2: Set up variables to keep track of the element's position.
@@ -58,14 +61,17 @@ function dragElement(element) {
     document.onmousemove = null;
   }
 }
-
+//
+var notesScreen = document.querySelector("#notesApp");
 var welcomeScreen = document.querySelector("#welcome");
+
 function closeWindow(element) {
   element.style.display = "none"
 }
 function openWindow(element) {
-  element.style.display = "block" //idk yet
+  element.style.display = "block"
 }
+
 var welcomeScreenClose = document.querySelector("#welcomeclose")
 welcomeScreenClose.addEventListener("click", function() {
   closeWindow(welcomeScreen);
@@ -74,7 +80,14 @@ var welcomeScreenOpen = document.querySelector("#welcomeopen")
 welcomeScreenOpen.addEventListener("click", function() {
   openWindow(welcomeScreen);
 });
-
+var notesScreenClose = document.querySelector("#notesclose")
+  notesScreenClose.addEventListener("click", function() {
+  closeWindow(notesScreen);
+});
+var notesScreenOpen = document.querySelector("#notesopen")
+  notesScreenOpen.addEventListener("click", function() {
+  openWindow(notesScreen);
+});
 var selectedIcon = undefined
 function selectIcon(element){
   element.classList.add("selected");
@@ -85,9 +98,12 @@ function deselectIcon(element){
   selectedIcon = undefined
 }
 
-handleIconTap(document.getElementById("desktopApp"));
+handleIconTap(
+  document.getElementById("desktopNotesApp"),
+  document.getElementById("notesApp")
+);
 
-function handleIconTap(element, window) {
+function handleIconTap(iconElement, appWindow) {
   element.addEventListener("mouseover", () => {selectIcon(element);
   });
   element.addEventListener("mouseout", () => {deselectIcon(element);
