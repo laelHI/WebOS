@@ -15,7 +15,6 @@
     padding: 16px;
 }
 .windowheader{
-    user-select:none;
     height: 32px;
     cursor: grab;
     margin: 0px;

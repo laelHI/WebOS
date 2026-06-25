@@ -62,11 +62,11 @@ function dragElement(element) {
   }
   }
 
-function closeWindow(element) {
-  element.style.display = "none"
-}
 function openWindow(element) {
   element.style.display = "block"
+}
+function closeWindow(element) {
+  element.style.display = "none"
 }
 
 function openAndCloseScreen(element, elementClose, elementOpen) {
@@ -75,11 +75,6 @@ function openAndCloseScreen(element, elementClose, elementOpen) {
   elementOpen.addEventListener("click", () =>
     openWindow(element));
 }
-
-openAndCloseScreen(
-  document.querySelector("#notesApp"),
-  document.querySelector("#notesclose"), 
-  document.querySelector("#desktopNotesApp"))
 
 var selectedIcon = undefined
 function selectIcon(element){
@@ -91,16 +86,20 @@ function deselectIcon(element){
   selectedIcon = undefined
 }
 
-function handleIconTap(iconElement, appWindow) {
+function handleIcon(iconElement, appWindow) {
   iconElement.addEventListener("mouseover", () => {selectIcon(iconElement);
   });
   iconElement.addEventListener("mouseout", () => {deselectIcon(iconElement);
   });
   iconElement.addEventListener("click", () => {openWindow(appWindow);
-  })  
+  })    
 }
+openAndCloseScreen(
+  document.querySelector("#notesApp"),
+  document.querySelector("#notesClose"), 
+  document.querySelector("#desktopNotesApp"))
 
-handleIconTap(
+handleIcon(
   document.getElementById("desktopNotesApp"),
   document.getElementById("notesApp")
 );
