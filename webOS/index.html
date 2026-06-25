@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+ 
+  <head></head> 
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite|Nothing+You+Could+Do">
+  </head>
+
+  <body style="background-image: url(./ocean-pic.png); height: 100vh; background-size: cover; font-family: cursive;"> <!--height: 100vh;-->
+    
+    <div class="window" id="welcome" style ="top: 50%; left: 25%; transform: translate(-50%, -50%);"> <!--change size 11px // could also be fit-content-->
+      <div class="windowheader" id="welcomeheader">
+        <p class="closebutton" id="welcomeclose">x</p>
+      </div>
+      <div class="innerwindow">
+        <h1 style="margin: 0px">Welcome to my OS</h1>
+        <h2 style="font-family: Special Elite, serif; margin: 0px;">Introduction</h2>
+        <p style="font-family: FreeMono, monospace; margin: 0px;">Hello World</p>
+        
+        <img style="width: 150px; height: 100px; object-fit: contain;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd_NJBRwlSQDsewF0oex0dfLLxHON0X-_xuw&s" alt="photo looking up at trees in a forest"/>
+        <img style="width: 150px; height: 100px; object-fit: contain;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7UGj1d3j2PMKdQg0Q_ki1pZGpmqhPq53kSA&amp;s" alt="44,871,825 Nature Stock Photos - Free ..."/>
+        <br>
+        <a href="https://www.google.com/">Google</a>
+      </div>
+    </div>
+    <div id="webOS" style="position: absolute;  top: 0; left: 0; right: 0; display: flex; justify-content: space-between; width: 100%; backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.5); color: #c33333; border: solid #f4e0c9;"> <!--fix the header-->
+      <p style="margin-left: 16px;"> WebOS </p>
+      <p style="cursor: pointer" id="welcomeopen">open welcome</p>
+      <p id="timeElement" style="margin-right: 16px;"> Time </p>
+    </div>
+    <script type="module" src="./script.js"></script>
+  </body>
+
+</html>

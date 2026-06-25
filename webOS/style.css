@@ -1,0 +1,40 @@
+.window{
+    position: absolute; 
+    padding: 10px; 
+    border: solid #af885b; 
+    width: fit-content; 
+    height: fit-content; 
+    border-radius: 16px; 
+    background-color: #ffffff;
+}
+.innerwindow{
+    border: solid #af885b; 
+    background-color: #f4e0c9; 
+    border-radius: 16px; 
+    margin-top: 10px; 
+    padding: 16px;
+}
+.windowheader{
+    user-select:none;
+    height: 32px;
+    cursor: grab;
+    margin: 0px;
+    width: 100%;
+    background-color: rgba(164, 164, 164, 0.5);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.closebutton {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px; 
+    cursor: pointer; 
+    background-color:#c33333; 
+    border: 1px solid #000000;
+    border-radius: 5px; 
+    display: flex; 
+    align-items: flex-end;
+    justify-content: center;
+}
