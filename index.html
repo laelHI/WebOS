@@ -23,11 +23,20 @@
         <a href="https://www.google.com/">Google</a>
       </div>
     </div>
-    <div id="webOS" style="position: absolute;  top: 0; left: 0; right: 0; display: flex; justify-content: space-between; width: 100%; backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.5); color: #c33333; border: solid #f4e0c9;"> <!--fix the header-->
+
+    <div id="webOS" style="position: absolute;  top: 0; left: 0; right: 0; display: flex; justify-content: space-between; width: 100%; backdrop-filter: blur(10px); background-color: rgba(255, 255, 255, 0.5); color: #c33333; border: solid #f4e0c9;"> <!--fix the header-->
       <p style="margin-left: 16px;"> WebOS </p>
       <p style="cursor: pointer" id="welcomeopen">open welcome</p>
       <p id="timeElement" style="margin-right: 16px;"> Time </p>
     </div>
+    
+    <div id="desktopApp" style="padding-top: 64px; padding-left: 32px; height: fit-content; width:fit-content;">
+      <div class="selected" >
+        <img src="./post-it-transparent.png" style="width: 60px; height: 58px; object-fit:cover; margin: 0px;">
+        <p style="font-size: 60%; display: flex; align-items: center; justify-content: center; margin: 0px;">Notes App</p>
+      </div>
+    </div>
+
     <script type="module" src="./script.js"></script>
   </body>
 

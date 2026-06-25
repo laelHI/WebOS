@@ -74,3 +74,24 @@ var welcomeScreenOpen = document.querySelector("#welcomeopen")
 welcomeScreenOpen.addEventListener("click", function() {
   openWindow(welcomeScreen);
 });
+
+var selectedIcon = undefined
+function selectIcon(element){
+  element.classList.add("selected");
+  selectedIcon = element
+}
+function deselectIcon(element){
+  element.classList.remove("selected");
+  selectedIcon = undefined
+}
+
+handleIconTap(document.getElementById("desktopApp"));
+
+function handleIconTap(element) {
+  if (element.classList.contains("selected")){
+    deselectIcon(element)
+    openWindow(window)
+  } else{
+    selectIcon(element)
+  }  
+}
