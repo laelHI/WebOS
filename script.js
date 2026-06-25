@@ -88,6 +88,7 @@ var notesScreenOpen = document.querySelector("#notesopen")
   notesScreenOpen.addEventListener("click", function() {
   openWindow(notesScreen);
 });
+
 var selectedIcon = undefined
 function selectIcon(element){
   element.classList.add("selected");
@@ -98,17 +99,16 @@ function deselectIcon(element){
   selectedIcon = undefined
 }
 
+function handleIconTap(iconElement, appWindow) {
+  iconElement.addEventListener("mouseover", () => {selectIcon(iconElement);
+  });
+  iconElement.addEventListener("mouseout", () => {deselectIcon(iconElement);
+  });
+  iconElement.addEventListener("click", () => {openWindow(appWindow);
+  })  
+}
+
 handleIconTap(
   document.getElementById("desktopNotesApp"),
   document.getElementById("notesApp")
 );
-
-function handleIconTap(iconElement, appWindow) {
-  element.addEventListener("mouseover", () => {selectIcon(element);
-  });
-  element.addEventListener("mouseout", () => {deselectIcon(element);
-  });
-  
-  element.addEventListener("click", () => {openWindow(window);
-  })  
-}
