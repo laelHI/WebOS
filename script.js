@@ -98,6 +98,10 @@ openAndCloseScreen(
   document.querySelector("#notesApp"),
   document.querySelector("#notesClose"), 
   document.querySelector("#desktopNotesApp"))
+openAndCloseScreen(
+  document.querySelector("#welcome"),
+  document.querySelector("#welcomeClose"), 
+  document.querySelector("#welcomeOpen"))
 
 handleIcon(
   document.getElementById("desktopNotesApp"),
