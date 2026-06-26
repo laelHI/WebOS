@@ -3,10 +3,6 @@ setInterval(
     document.querySelector("#timeElement").innerHTML = new Date().toLocaleString();}
     , 1000);
 
-// Make the DIV element draggable:
-dragElement(document.getElementById("welcome"));
-dragElement(document.getElementById("notesApp"));
-
 //dragElement(document.getElementById("time")); 
 
 //from tutorial
@@ -63,7 +59,11 @@ function dragElement(element) {
   }
 
 function openWindow(element) {
-  element.style.display = "block"
+  element.style.display = "block";
+  biggestIndex++;
+  element.style.zIndex = biggestIndex;
+  bar.style.zIndex = biggestIndex + 1;
+
 }
 function closeWindow(element) {
   element.style.display = "none"
@@ -94,16 +94,37 @@ function handleIcon(iconElement, appWindow) {
   iconElement.addEventListener("click", () => {openWindow(appWindow);
   })    
 }
-openAndCloseScreen(
-  document.querySelector("#notesApp"),
-  document.querySelector("#notesClose"), 
-  document.querySelector("#desktopNotesApp"))
-openAndCloseScreen(
-  document.querySelector("#welcome"),
-  document.querySelector("#welcomeClose"), 
-  document.querySelector("#welcomeOpen"))
+var biggestIndex = 1;
+
+function addWindowTapHandling(element){
+  element.addEventListener("mousedown", () => 
+    handleWindowTap(element))
+}
+
+function handleWindowTap(element) {
+  biggestIndex++;
+  element.style.zIndex = biggestIndex;
+  bar.style.zIndex = biggestIndex + 1;
+  deselectIcon(selectedIcon)
+}
+var bar = document.querySelector("#webOS") 
+
+function newWindow(elementName){
+  var app = document.querySelector("#" + elementName)
+  var close = document.querySelector("#" + elementName + "Close")
+  var open = document.querySelector("#" + elementName + "Open")
+
+  addWindowTapHandling(app)
+  dragElement(app)
+  openAndCloseScreen(app, close, open)
+}
+
+newWindow("notesApp")
+newWindow("welcomeApp")
 
 handleIcon(
-  document.getElementById("desktopNotesApp"),
+  document.getElementById("notesAppOpen"),
   document.getElementById("notesApp")
 );
+
+//heading doesnt work
