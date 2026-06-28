@@ -1,8 +1,11 @@
+console.log(content);
+console.log(content[0]);
+
 setInterval(
     function updateTime(){
     document.querySelector("#timeElement").innerHTML = new Date().toLocaleString();}
     , 1000);
-
+ 
 var content = [
   {
     title: "Hello",
@@ -170,11 +173,7 @@ setNotesContent(0)
 newWindow("notesApp")
 newWindow("welcomeApp")
 
-
-
 handleIcon(
   document.getElementById("notesAppOpen"),
   document.getElementById("notesApp")
 );
-
-//heading doesnt work
