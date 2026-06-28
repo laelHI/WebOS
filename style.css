@@ -4,6 +4,7 @@
     border: solid #af885b; 
     width: fit-content; 
     height: fit-content; 
+    max-height: 100%;
     border-radius: 16px; 
     background-color: #ffffff;
 }
@@ -37,6 +38,17 @@
     display: flex; 
     align-items: flex-end;
     justify-content: center;
+}
+.bartext {
+    min-width: 10px; 
+    max-width: 50px; 
+    display: inline-block; 
+    overflow-x: auto; 
+    white-space: nowrap;
+    min-height: auto;
+    scrollbar-width: none;
+    font-family: FreeMono, monospace;
+    pointer-events: none;
 }
 .selected {
     cursor:pointer;

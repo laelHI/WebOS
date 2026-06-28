@@ -38,15 +38,21 @@
       </div>
     </div>
 
-    <div class="window" id="notesApp" style ="display: none; top: 50%; left: 25%; transform: translate(-50%, -50%);"> <!--change size 11px // could also be fit-content-->
+    <div class="window" id="notesApp" style ="display: none; top: 50%; left: 50%; transform: translate(-50%, -50%);"> <!--change size 11px // could also be fit-content-->
       <div class="windowheader" id="notesAppHeader">
-        <p style="display: flex; justify-content: center; margin-left: 16px;"></p>
+        <p style="display: flex; justify-content: center; margin-left: 16px;">Notes</p>
         <p class="closebutton" id="notesAppClose">x</p>
       </div>
-      <div class="innerwindow" style="height: 200px; width: 300px; background-image: url(./lines.png); background-size: cover; background-position-x: center;">
+      <div class="innerwindow" style="height: fit-content; width: fit-content; min-width: 200px; min-height: 200px; background-image: url(./lines.png); background-size: cover; background-position-x: center;">
         <h1 style="margin: 0px">Notes App</h1>
-        <div>
-          <p style="font-family: FreeMono, monospace; margin: 0px;">type notes</p>
+        <!--idk-->
+        <div style="background-color: rgba(255, 255, 255, 0.5); backdrop-filter: blur(1px); margin: 6px; border-radius: 12px; width: fit-content; height: fit-content; padding: 16px; font-family: Courier; display: flex;">
+          <div id="bar" style="border-right: solid #8f7454; margin-right: 16px; padding-right: 10px; padding-top: 10px; display: flex; flex-direction: column;">
+            <!--<p class="bartext" id ="title" style="margin: 0px;" contenteditable="true"></p>-->
+            <!--<p class="bartext" id ="date" style="font-size: 12px; margin: 0px;" contenteditable="true"></p>-->
+          </div>
+          <div id="notesContent"style="overflow-y: scroll; scrollbar-width: none;">
+          </div>
         </div>
       </div>
     </div>

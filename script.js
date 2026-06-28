@@ -3,7 +3,24 @@ setInterval(
     document.querySelector("#timeElement").innerHTML = new Date().toLocaleString();}
     , 1000);
 
-//dragElement(document.getElementById("time")); 
+var content = [
+  {
+    title: "Hello",
+    date: "m/d/yy",
+    content: ` <p contenteditable="True">
+                Welcome to the notes app 
+                  </br>
+                  </br>
+                  </br>
+                  </br>
+                  </br>
+                  </br>
+                  </br>
+                  </br>
+                  </br>
+              </p>`
+  }
+]
 
 //from tutorial
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
@@ -119,8 +136,41 @@ function newWindow(elementName){
   openAndCloseScreen(app, close, open)
 }
 
+function setNotesContent(index){
+  var notesContent = document.querySelector("#notesContent")
+
+  notesContent.innerHTML = content[index].content
+}
+
+function addToSideBar(index) {
+  var bar = document.querySelector("#bar");
+  var note = content[index];
+  var newDiv = document.createElement("div");
+  newDiv.innerHTML = `
+      <p class="bartext" id ="title" style="margin: 0px;" contenteditable="true">
+      ${note.title}
+      </p>
+      <p class="bartext" id ="date" style="font-size: 12px; margin: 0px;" contenteditable="true">
+      ${note.date}
+      </p>
+    `
+  newDiv.addEventListener("click", () =>{
+    setNotesContent(index);
+  });
+
+  bar.appendChild(newDiv);
+  
+  for (let i = 0; i < content.length; i++){
+    addToSideBar(i)
+  }
+}
+
+setNotesContent(0)
+
 newWindow("notesApp")
 newWindow("welcomeApp")
+
+
 
 handleIcon(
   document.getElementById("notesAppOpen"),
