@@ -8,33 +8,48 @@
 
   <body style="background-image: url(./ocean-pic.png); height: 100vh; background-size: cover; font-family: cursive;"> <!--height: 100vh;-->
     
-    <div class="window" id="welcomeApp" style ="top: 50%; left: 25%; transform: translate(-50%, -50%);"> <!--change size 11px // could also be fit-content-->
+    <div class="window" id="welcomeApp" style ="top: 50%; left: 25%; transform: translate(-50%, -50%); display: none;"> <!--change size 11px // could also be fit-content-->
       <div class="windowheader" id="welcomeAppHeader">
         <p style="display: flex; justify-content: center; margin-left: 16px;"></p>
         <p class="closebutton" id="welcomeAppClose">x</p>
       </div>
       <div class="innerwindow">
         <h1 style="margin: 0px">Welcome to my OS</h1>
-        <h2 style="font-family: Special Elite, serif; margin: 0px;">Introduction</h2>
-        <p style="font-family: FreeMono, monospace; margin: 0px;">Hello World</p>
-        
-        <img style="width: 150px; height: 100px; object-fit: cover; border-radius: 10px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd_NJBRwlSQDsewF0oex0dfLLxHON0X-_xuw&s" alt="photo looking up at trees in a forest"/>
-        <img style="width: 150px; height: 100px; object-fit: cover; border-radius: 10px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7UGj1d3j2PMKdQg0Q_ki1pZGpmqhPq53kSA&amp;s" alt="44,871,825 Nature Stock Photos - Free ..."/>
-        <br>
-        <a href="https://www.google.com/">Google</a>
+        <p style="font-family: Special Elite, serif; margin: 0px;">Introduction</p>
+        </br>
+        <span style="font-family: FreeMono, monospace; margin: 0px;">Hello World and Welcome to my OS!
+        </br>
+        </br>
+        Here you will find </br><pre>1. a fully working notes app </br>2. an internet app with buttons to the internet </br>3. a stopwatch
+        </br>
+        Have fun exploring!
+        </span>
+
+        <div style="display: flex;">
+        <img style="width: 150px; height: 100px; object-fit: cover; border-radius: 10px; padding: 2px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd_NJBRwlSQDsewF0oex0dfLLxHON0X-_xuw&s" alt="photo looking up at trees in a forest"/>
+        <img style="width: 150px; height: 100px; object-fit: cover; border-radius: 10px; padding: 2px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7UGj1d3j2PMKdQg0Q_ki1pZGpmqhPq53kSA&amp;s" alt="44,871,825 Nature Stock Photos - Free ..."/>
+        </div>
       </div>
     </div>
 
-    <div id="webOS" style="position: absolute;  top: 0; left: 0; right: 0; display: flex; justify-content: space-between; width: 100%; backdrop-filter: blur(10px); background-color: rgba(255, 255, 255, 0.5); color: #c33333; border-bottom: solid #f4e0c9;"> <!--fix the header-->
+    <div id="webOS" style="position: absolute;  top: 0; left: 0; right: 0; display: flex; justify-content: space-between; width: 100%; backdrop-filter: blur(10px); background-color: rgba(255, 255, 255, 0.5); color: #000000; border-bottom: solid #f4e0c9;"> <!--fix the header-->
       <p style="margin-left: 16px;"> WebOS </p>
-      <p style="cursor: pointer" id="welcomeAppOpen">open welcome</p>
+      <p style="cursor: pointer" id="welcomeAppOpen">Open Welcome</p>
       <p id="timeElement" style="margin-right: 16px;"> Time </p>
     </div>
-    
-    <div style="padding-top: 64px; padding-left: 32px; height: fit-content; width:fit-content;">
-      <div id="notesAppOpen">
+
+    <div style="padding-top: 64px; padding-left: 32px; height: fit-content; width:fit-content; display: flex; flex-direction: column;">
+      <div id="notesAppOpen" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
         <img src="./post-it-transparent.png" style="width: 60px; height: 58px; object-fit:cover; margin: 0px;"> <!--could add the select stuff here so it doesnt higlight the words-->
         <p style="font-size: 60%; display: flex; align-items: center; justify-content: center; margin: 0px;">Notes App</p>
+      </div>
+      <div id="internetAppOpen" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <img src="./internet-transparent.png" style="width: 60px; height: 58px; object-fit:cover; margin: 0px;"> <!--could add the select stuff here so it doesnt higlight the words-->
+        <p style="font-size: 60%; display: flex; align-items: center; justify-content: center; margin: 0px;">Internet App</p>
+      </div>
+      <div id="stopwatchAppOpen" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <img src="./stopwatch-transparent.png" style="width: 60px; height: 58px; object-fit:cover; margin: 0px;"> <!--could add the select stuff here so it doesnt higlight the words-->
+        <p style="font-size: 60%; display: flex; align-items: center; justify-content: center; margin: 0px;">Stopwatch App</p>
       </div>
     </div>
 
@@ -45,18 +60,62 @@
       </div>
       <div class="innerwindow" style="height: fit-content; width: fit-content; min-width: 200px; min-height: 200px; background-image: url(./lines.png); background-size: cover; background-position-x: center;">
         <h1 style="margin: 0px">Notes App</h1>
-        <!--idk-->
         <div style="background-color: rgba(255, 255, 255, 0.5); backdrop-filter: blur(1px); margin: 6px; border-radius: 12px; width: fit-content; height: fit-content; padding: 16px; font-family: Courier; display: flex;">
-          <div id="bar" style="border-right: solid #8f7454; margin-right: 16px; padding-right: 10px; padding-top: 10px; display: flex; flex-direction: column;">
-            <!--<p id ="title" style="margin: 0px;"></p>-->
-            <!--<p id ="date" style="font-size: 12px; margin: 0px;"></p>-->
+          <div style="border-right: solid #8f7454; margin-right: 16px; padding-right: 16px; padding-top: 10px; display: flex; flex-direction: column; justify-content: space-between; width: fit-content;">
+            <div id="bar" style="display: flex; flex-direction: column; width: fit-content;"></div>
+            <div style="margin:0px; ">
+              <div id="addNote" style="background-color:#f4e0c9; height: 15px; width: 100%; border-radius: 10px; margin-top: 10px; display: flex; justify-content: center; align-items: center; cursor: pointer;">
+                <p style="font-size: large; font-weight: 900; color: #ffffff; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);">+</p>
+              </div>
+              <div id="removeNote" style="background-color:#f4e0c9; height: 15px; width: 100%; border-radius: 10px; display: flex; justify-content: center; align-items: center; cursor: pointer;">
+                <p style="font-size: large; font-weight: 900; color: #ffffff; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);">-</p>
+              </div>
+            </div>
           </div>
-          <div id="notesContent"style="overflow-y: scroll; scrollbar-width: none;">
+          <div id="notesContent"style="overflow-y: scroll; scrollbar-width: none;"> <!--notes to add bar to seperate different notes on the bar/ Add a really unique background color and color for your text
+Make the top bar of the application change depending on the notes currently open
+Make some awesome content for your site
+Fix the bug where the menu gets trapped in the top bar when you pull it up too far (either by limiting how far you can pull it up or by making it possible to click through the top bar)
+Celebrate/ buttons for adding new notes-->
           </div>
         </div>
       </div>
     </div>
-    <script src="content.js"></script>
+    
+    <div class="window" id="internetApp" style ="display: none; top: 50%; left: 50%; transform: translate(-50%, -50%);"> <!--change size 11px // could also be fit-content-->
+      <div class="windowheader" id="internetAppHeader">
+        <p style="display: flex; justify-content: center; margin-left: 16px;">Internet</p>
+        <p class="closebutton" id="internetAppClose">x</p>
+      </div>
+      <div class="innerwindow" style="height: fit-content; width: fit-content; min-width: 200px; min-height: 200px; background-image: url(./lines.png); background-size: cover; background-position-x: center;">
+        <div style="background-color: rgba(255, 255, 255, 0.75); backdrop-filter: blur(1px); margin: 6px; border-radius: 12px; width:fit-content; height: fit-content; min-width: 184px; min-height: 184px; padding: 16px; font-family: Courier; display: flex; flex-direction: column; justify-content: space-around;">
+          <a href="https://stardance.hackclub.com/" class="button" style= "color: #ffde59;">Stardance</a>
+          <a href="https://www.google.com/" class="button" >Google</a>
+          <a href="https://www.instagram.com/" class="button" >Instagram</a>
+          <a href="./Virus.png" class="button" style= "font-size: 12px;" >Virus (don't click)</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="window" id="stopwatchApp" style ="display: none; top: 50%; left: 50%; transform: translate(-50%, -50%);"> <!--change size 11px // could also be fit-content-->
+      <div class="windowheader" id="stopwatchAppHeader">
+        <p style="display: flex; justify-content: center; margin-left: 16px;">Stopwatch</p>
+        <p class="closebutton" id="stopwatchAppClose">x</p>
+      </div>
+      <div class="innerwindow" style="height: fit-content; width: fit-content; min-width: 200px; min-height: 200px; background-image: url(./lines.png); background-size: cover; background-position-x: center;">
+        <div style="background-color: rgba(255, 255, 255, 0.5); backdrop-filter: blur(1px); margin: 6px; border-radius: 12px; width: fit-content; height: fit-content; padding: 16px; font-family: Courier; display: flex;">
+          <div style="margin: 6px; border-radius: 12px; width:fit-content; height: fit-content; padding: 16px; font-family: Courier;">
+            <p id="stopwatch" style="margin: 0px; padding: 25px; display: flex; justify-content: center; font-size: 50px;">00:00</p>
+            <div style="display: flex; justify-content: space-around; border-top: #8f7454 solid; padding-top: 16px;">
+              <p id="startStopwatch" class="button" style="margin-left: 5px; margin-right: 5px;">Start</a>
+              <p id="stopStopwatch" class="button" style="margin-left: 5px; margin-right: 5px;">Stop</a>
+              <p id="resetStopwatch" class="button" style="margin-left: 5px; margin-right: 5px;">Reset</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <script type="module" src="./script.js"></script>
   </body>
 

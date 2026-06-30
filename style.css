@@ -43,6 +43,7 @@
     min-width: 10px; 
     max-width: 50px; 
     display: inline-block; 
+    justify-content: flex-start;
     overflow-x: auto; 
     white-space: nowrap;
     min-height: auto;
@@ -50,9 +51,28 @@
     font-family: FreeMono, monospace;
     pointer-events: none;
 }
+.barItem{
+    display: flex; 
+    flex-direction: column;
+}
+.button{
+    font-size: large; 
+    font-weight: 900; 
+    color: #ffffff; 
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+    background-color:#f4e0c9;
+    height: fit-content;
+    width: fit-content; 
+    border-radius: 10px; 
+    padding: 5px; 
+    border: 0.5px solid #af885b; 
+    cursor: pointer;
+    margin: 0px;
+
+}
 .selected {
     cursor:pointer;
-    padding: 5px;
+    padding: 8px;
     width: fit-content;
     height: fit-content;
     display:flex;

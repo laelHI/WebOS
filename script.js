@@ -1,5 +1,5 @@
-console.log(content);
-console.log(content[0]);
+//console.log("content =", content);
+//console.log("content[0] =", content[0]);
 
 setInterval(
     function updateTime(){
@@ -137,6 +137,13 @@ function newWindow(elementName){
   addWindowTapHandling(app)
   dragElement(app)
   openAndCloseScreen(app, close, open)
+  addIcon(elementName)
+}
+function addIcon(name){
+  var icon = document.querySelector("#" + name + "Open")
+  var screen = document.querySelector("#" + name)
+
+  handleIcon(icon, screen);
 }
 
 function setNotesContent(index){
@@ -150,30 +157,136 @@ function addToSideBar(index) {
   var note = content[index];
   var newDiv = document.createElement("div");
   newDiv.innerHTML = `
+    <div class="barItem">
       <p class="bartext" id ="title" style="margin: 0px;" contenteditable="true">
       ${note.title}
       </p>
       <p class="bartext" id ="date" style="font-size: 12px; margin: 0px;" contenteditable="true">
       ${note.date}
       </p>
+    </div>
     `
   newDiv.addEventListener("click", () =>{
     setNotesContent(index);
   });
 
   bar.appendChild(newDiv);
-  
-  for (let i = 0; i < content.length; i++){
-    addToSideBar(i)
+}
+function removeFromSideBar(index) {
+  var bar = document.querySelector("#bar");
+  var note = content[index];
+  var div = document.querySelector("div");
+  //newDiv.innerHTML = `
+  //  <div class="barItem">
+  //    <p class="bartext" id ="title" style="margin: 0px;" contenteditable="true">
+  //    ${note.title}
+  //    </p>
+  //    <p class="bartext" id ="date" style="font-size: 12px; margin: 0px;" contenteditable="true">
+  //    ${note.date}
+  //    </p>
+  //  </div>
+  //  `
+  div.addEventListener("click", () =>{
+    setNotesContent(index);
+  });
+
+  bar.remove(newDiv);
+}
+function addNewNote(){
+  var newNote = {
+    title: "New Note",
+    date: "m/d/yy",
+    content: `
+    <p contenteditable="true">
+      Add new note here...
+      </br>
+      </br>
+      </br>
+    </p>`
+  };
+
+  content.push(newNote);
+  addToSideBar(content.length - 1);
+  setNotesContent(content.length - 1)
+}
+function removeNote(){
+  content.pop();
+
+  document.querySelector("#bar").innerHTML = "";
+
+  for (let i = 0; i < content.length; i++) {
+    addToSideBar(i);
+  }
+
+  if (content.length > 0) {
+    setNotesContent(content.length - 1);
   }
 }
 
-setNotesContent(0)
+var stopwatchValue = 0;
+var stopwatchInterval = null;
 
-newWindow("notesApp")
+function timer() {
+  document.getElementById("startStopwatch").addEventListener("click", () => {
+  if (stopwatchInterval)
+    return;
+    stopwatchInterval = setInterval(() => {
+      stopwatchValue++;
+      updateStopwatchDisplay();
+    }, 1000);
+  }); 
+
+  document.getElementById("stopStopwatch").addEventListener("click", () => {
+    clearInterval(stopwatchInterval);
+    stopwatchInterval = null;
+  });
+
+  document.getElementById("resetStopwatch").addEventListener("click", () => {
+    stopwatchValue = 0;
+    updateStopwatchDisplay();
+  });
+
+  function updateStopwatchDisplay() {
+    document.getElementById("stopwatch").textContent = formatTime(stopwatchValue);
+  }
+
+  function formatTime(seconds) {
+    var hours = Math.floor(seconds / 3600);
+    var mins = Math.floor((seconds / 60) % 60);
+    var secs = seconds % 60;
+
+    if (hours < 10){ 
+      hours = "0" + hours;
+    }
+    if (mins < 10){
+      mins = "0" + mins;
+    }
+    if (secs < 10){ 
+      secs = "0" + secs;
+    }
+
+
+    if (hours === "00"){ 
+      return mins + ":" + secs;
+    }
+
+    return hours + ":" + mins + ":" + secs;
+  }
+}
+
+
+
 newWindow("welcomeApp")
+newWindow("notesApp")
+timer()
 
-handleIcon(
-  document.getElementById("notesAppOpen"),
-  document.getElementById("notesApp")
-);
+for (let i = 0; i < content.length; i++){
+  addToSideBar(i)
+}
+setNotesContent(0)
+document.querySelector("#addNote").addEventListener("click", addNewNote)
+document.querySelector("#removeNote").addEventListener("click", removeNote)
+
+newWindow("internetApp")
+newWindow("stopwatchApp")
+
